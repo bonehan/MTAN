@@ -236,34 +236,6 @@ class MTAN(nn.Module):
         
         return cdr, adas11, adas13, mmse, Attn
 
-class CNN_S(nn.Module):
-    def __init__(self):
-        super(CNN_S, self).__init__()
-
-        self.encoder = Encoder()
-        self.Projection = nn.Sequential(
-            Conv3d(args.Filters[5], args.Filters[6], kernel_size = 3, stride = 1, padding = 1),
-            nn.MaxPool3d((2, 2, 2)),
-            nn.Dropout3d(args.dropout),
-            Conv3d(args.Filters[6], args.Filters[7], kernel_size = 3, stride = 1, padding = 1),
-            nn.AdaptiveMaxPool3d((1, 1, 1)),
-            nn.Flatten(),
-            nn.Dropout(args.dropout),
-            nn.Linear(args.Filters[7], args.Latent),
-            nn.ReLU(inplace = True),            
-        )
-        self.prediction = Prediction(mode = 'none')
-
-
-    def forward(self, inputs):
-
-        x = self.encoder(inputs)
-        # print(x.shape)
-        x = self.Projection(x)
-        score = self.prediction(x)
-
-        return score
-
 class CNN_M(nn.Module):
     def __init__(self):
         super(CNN_M, self).__init__()
