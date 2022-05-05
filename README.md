@@ -1,1 +1,15 @@
 # MTAN
+Pytorch Implementation for Multi-view Transfer Attention Network for Dementia Status Prediction
+
+Results:
+Trained on ADNI-1, Tested on ADNI-2								
+Methods	CDRSB		ADAS11	ADAS11	ADAS13	ADAS13	MMSE	MMSE
+	CC	RMSE	CC	RMSE	CC	RMSE	CC	RMSE
+ROI	0.309	2.168	0.293	8.518	0.316	12.414	0.285	3.618
+VBM	0.444	1.851	0.478	6.820	0.523	9.443	0.403	2.663
+VIT-mean	0.489	1.809	0.542	6.867	0.554	9.689	0.478	2.851
+VIT-cls	0.472	1.761	0.529	6.663	0.530	9.296	0.475	2.740
+CNN	0.581	1.766	0.628	6.476	0.656	8.871	0.583	2.380
+wiseDNN	0.575	1.626	0.618	5.937	0.654	8.037	0.572	2.367
+MTAN	0.646	1.553	0.693	5.492	0.718	7.504	0.649	2.164
+![image](https://user-images.githubusercontent.com/42054220/166875383-bb3b9261-f88a-4e7d-9d73-82ea2650cf76.png)
