@@ -2,7 +2,6 @@ import torch
 import torch.nn.functional as F
 from einops import repeat
 from torch import Tensor, nn
-from torch.nn import functional as F
 
 from config import args
 
